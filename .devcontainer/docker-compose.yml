@@ -1,6 +1,6 @@
 version: '3.8'
 
-services: 
+services:
   app:
     build:
       context: .
@@ -9,14 +9,9 @@ services:
     volumes:
       - ../..:/workspaces:cached
 
-    # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
 
-    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
     network_mode: service:db
-
-    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
     image: mariadb:10.4
@@ -26,11 +21,20 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: mariadb
       MYSQL_DATABASE: mariadb
-      MYSQL_USER: mariadb
-      MYSQL_PASSWORD: mariadb
+      MYSQL_USER: umair123
+      MYSQL_PASSWORD: umair@123
 
-    # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
-    # (Adding the "ports" property to this file will not forward from a Codespace.)
-  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db # Corrected to the MariaDB service name
+      PMA_USER: umair123
+      PMA_PASSWORD: umair@123
+    depends_on:
+      - db # Corrected to refer to the MariaDB service
+
 volumes:
   mariadb-data:
