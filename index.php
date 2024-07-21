@@ -36,6 +36,9 @@
             <div class="carousel-item">
                 <img src="partials/img/c.jpeg" class="d-block w-100" alt="..." height="500px">
             </div>
+            <div class="carousel-item">
+                <img src="partials/img/d.webp" class="d-block w-100" alt="..." height="500px">
+            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
             data-bs-slide="prev">
@@ -65,7 +68,7 @@
       while($row = mysqli_fetch_assoc($result)){
         $cat = $row['category_name'];
         $desc = $row['category_description'];
-
+        
 $id =$row['category_id'];
 $name =$row['category_name'];
 $desc =$row['category_description'];

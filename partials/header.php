@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '_handleLogin.php';
 echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/forum">iDiscuss</a>
