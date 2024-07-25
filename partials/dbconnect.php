@@ -2,10 +2,10 @@
 
 
 //script to connect the database
-$servername ="localhost";
-$username ="root";
-$password ="";
-$database ="idiscuss";
+$servername ="db";
+$username ="umair123";
+$password ="umair@123";
+$database ="mariadb";
 
 $conn =mysqli_connect($servername,$username,$password,$database);
 
