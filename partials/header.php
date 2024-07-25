@@ -1,5 +1,5 @@
 <?php
-include '_handleLogin.php';
+session_start();
 echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/forum">iDiscuss</a>
@@ -64,6 +64,7 @@ else{   echo '
 
 include 'partials/loginmodal.php';
 include 'partials/signupmodal.php';
+
 if(isset($_GET['signupsuccess']) && $_GET['signupsuccess']=="true"){
   echo '<div class="alert alert-success alert-dismissible fade show my-0" role="alert">
   <strong>Success!</strong> You can login using credentials.
